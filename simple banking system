@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+    int choice;
+    float balance = 1000, deposit, withdraw;
+
+    while(1) {
+        printf("\n--- Banking System ---\n");
+        printf("1. Deposit\n2. Withdraw\n3. Check Balance\n4. Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+
+        switch(choice) {
+            case 1:
+                printf("Enter amount to deposit: ");
+                scanf("%f", &deposit);
+                balance += deposit;
+                break;
+            case 2:
+                printf("Enter amount to withdraw: ");
+                scanf("%f", &withdraw);
+                if(withdraw > balance)
+                    printf("Insufficient balance!\n");
+                else
+                    balance -= withdraw;
+                break;
+            case 3:
+                printf("Balance = %.2f\n", balance);
+                break;
+            case 4:
+                return 0;
+            default:
+                printf("Invalid choice!\n");
+        }
+    }
+}
